@@ -15,10 +15,16 @@ const GetEpisodes = () => {
    console.log(episodesData);
    return (
       <div>
-         <p>Get Episodes Data</p>
-         {episodesData.map((data) => (
-            <div> Episodes Date {data.air_date}</div>
-         ))}
+         <h2>Get Episodes Data</h2>
+         <ul>
+            {episodesData &&
+               episodesData.map((data) => (
+                  <li key={data.id}>
+                     {" "}
+                     Episodes Id: {data.id} Created: {data.created}{" "}
+                  </li>
+               ))}
+         </ul>
       </div>
    );
 };

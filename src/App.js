@@ -10,6 +10,8 @@ import { onError } from "@apollo/client/link/error";
 
 // Local Components
 import GetEpisodes from "./Components/GetEpisodes";
+import GetCharacters from "./Components/GetCharacters";
+import GetLocations from "./Components/GetLocations";
 
 // Check is Error
 const errorLink = onError(({ graphqlErrors, networkErrors }) => {
@@ -35,6 +37,8 @@ function App() {
    return (
       <ApolloProvider client={client}>
          <GetEpisodes />
+         <GetCharacters />
+         <GetLocations />
       </ApolloProvider>
    );
 }
