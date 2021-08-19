@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+   ApolloClient,
+   InMemoryCache,
+   ApolloProvider,
+   HttpLink,
+   from,
+} from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
+
+// Local Components
+import GetEpisodes from "./Components/GetEpisodes";
+
+// Check is Error
+const errorLink = onError(({ graphqlErrors, networkErrors }) => {
+   if (graphqlErrors) {
+      graphqlErrors.map(({ message, location, path }) => {
+         alert(`GraphQL Error ${message}`);
+      });
+   }
+});
+// API Link
+const link = from([
+   errorLink,
+   new HttpLink({ uri: "https://rickandmortyapi.com/graphql" }),
+]);
+
+// Apollo Client Setup
+const client = new ApolloClient({
+   cache: new InMemoryCache(),
+   link,
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      <ApolloProvider client={client}>
+         <GetEpisodes />
+      </ApolloProvider>
+   );
 }
 
 export default App;
