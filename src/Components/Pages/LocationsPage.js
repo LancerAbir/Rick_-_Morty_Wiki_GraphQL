@@ -1,11 +1,12 @@
 import React from "react";
+import GetLocations from "../GetLocations";
 import Navbar from "../Layout/Navbar";
 
 const LocationsPage = () => {
     return (
         <div>
             <Navbar />
-            <h3>Locations Page</h3>
+            <GetLocations />
         </div>
     );
 };

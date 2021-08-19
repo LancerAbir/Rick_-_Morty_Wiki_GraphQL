@@ -1,11 +1,12 @@
 import React from "react";
+import GetEpisodes from "../GetEpisodes";
 import Navbar from "../Layout/Navbar";
 
 const EpisodesPage = () => {
     return (
         <div>
             <Navbar />
-            <h3>Episodes page</h3>
+            <GetEpisodes />
         </div>
     );
 };
