@@ -8,10 +8,6 @@ import {
 import { onError } from "@apollo/client/link/error";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import GetCharacters from "./Components/GetCharacters";
-// Local Components
-import GetEpisodes from "./Components/GetEpisodes";
-import GetLocations from "./Components/GetLocations";
 import CharactersPage from "./Components/Pages/CharactersPage";
 import EpisodesPage from "./Components/Pages/EpisodesPage";
 import Home from "./Components/Pages/Home";
@@ -60,9 +56,6 @@ function App() {
                             path="/locations"
                             component={LocationsPage}
                         />
-                        <GetEpisodes />
-                        <GetCharacters />
-                        <GetLocations />
                     </ApolloProvider>
                 </Switch>
             </BrowserRouter>
