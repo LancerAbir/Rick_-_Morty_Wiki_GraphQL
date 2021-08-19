@@ -13,21 +13,23 @@ const GetEpisodes = () => {
     }, [data]);
     console.log(episodesData);
     return (
-        <div className="container">
+        <div className="pr-5 pl-5">
             <div className="row">
-                <div className="col-md-4"></div>
-            </div>
-            <h2>Get Episodes Data</h2>
-            <ul>
+                <div className="col-md-12 mt-3 mb-3 text-center">
+                    <h2>Get Episodes Data</h2>
+                </div>
+
                 {episodesData
                     ? episodesData.map((data) => (
-                          <li key={data.id}>
-                              {" "}
+                          <div
+                              key={data.id}
+                              className="col-md-3 col-sm-6 col-12 mb-4"
+                          >
                               Episodes Id: {data.id} Created: {data.created}{" "}
-                          </li>
+                          </div>
                       ))
                     : "Loading..."}
-            </ul>
+            </div>
         </div>
     );
 };

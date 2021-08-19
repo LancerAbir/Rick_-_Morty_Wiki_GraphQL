@@ -16,29 +16,40 @@ const GetCharacters = () => {
     return (
         <div className="pr-5 pl-5">
             <div className="row">
-                <div className="col-md-12 mt-3">
+                <div className="col-md-12 mt-3 text-center">
                     <h2>Get Characters Data</h2>
                 </div>
                 {charactersData
                     ? charactersData.map((data) => (
-                          <div key={data.id} className="col-md-3 mb-4">
-                              <div className="card" style={{ width: "18rem" }}>
+                          <div
+                              key={data.id}
+                              className="col-md-3 col-sm-6 col-12 mb-3 item"
+                          >
+                              <div className="card item-card card-block">
                                   <img
-                                      className="card-img-top"
+                                      className="card-img-top image-width"
                                       src={data.image}
                                       alt={data.name}
                                   />
-                                  <div className="card-body">
-                                      <h5 className="card-title">
+                                  <div className="pl-3 pb-3 pr-3">
+                                      <h5 className="card-title  mt-3 mb-3">
                                           {data.name}
                                       </h5>
                                       <p className="card-text">
-                                          Some quick example text to build on
-                                          the card title and make up the bulk of
-                                          the card's content.
+                                          This is a company that builds
+                                          websites, web apps and e-commerce
+                                          solutions.
                                       </p>
                                       <Link to="#" className="btn btn-primary">
-                                          Go somewhere
+                                          <p
+                                              style={{
+                                                  marginRight: "0px",
+                                                  marginBottom: "-8px",
+                                                  marginTop: "5px",
+                                              }}
+                                          >
+                                              Read More
+                                          </p>
                                       </Link>
                                   </div>
                               </div>
