@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
 // Import Local Components
 import { GET_LOCATIONS_QUERY } from "../GraphQL/Queries";
 
 const GetLocations = () => {
-   const { error, loading, data } = useQuery(GET_LOCATIONS_QUERY);
+   const { data } = useQuery(GET_LOCATIONS_QUERY);
 
    const [locationsData, setLocationsData] = useState([]);
 
@@ -13,17 +13,19 @@ const GetLocations = () => {
       setLocationsData(data && data.locations.results);
    }, [data]);
    console.log(locationsData);
+
    return (
       <div>
          <h2>Get Locations Data</h2>
          <ul>
-            {locationsData &&
-               locationsData.map((data) => (
-                  <li key={data.id}>
-                     {" "}
-                     Episodes Id: {data.id} dimension: {data.dimension}{" "}
-                  </li>
-               ))}
+            {locationsData
+               ? locationsData.map((data) => (
+                    <li key={data.id}>
+                       {" "}
+                       Episodes Id: {data.id} dimension: {data.dimension}{" "}
+                    </li>
+                 ))
+               : "Loading..."}
          </ul>
       </div>
    );
