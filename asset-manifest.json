@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Rick_-_Morty_Wiki_GraphQL/static/css/main.fffc1406.chunk.css",
+    "main.js": "/Rick_-_Morty_Wiki_GraphQL/static/js/main.e524d7a0.chunk.js",
+    "main.js.map": "/Rick_-_Morty_Wiki_GraphQL/static/js/main.e524d7a0.chunk.js.map",
+    "runtime-main.js": "/Rick_-_Morty_Wiki_GraphQL/static/js/runtime-main.829609cb.js",
+    "runtime-main.js.map": "/Rick_-_Morty_Wiki_GraphQL/static/js/runtime-main.829609cb.js.map",
+    "static/js/2.628ccfeb.chunk.js": "/Rick_-_Morty_Wiki_GraphQL/static/js/2.628ccfeb.chunk.js",
+    "static/js/2.628ccfeb.chunk.js.map": "/Rick_-_Morty_Wiki_GraphQL/static/js/2.628ccfeb.chunk.js.map",
+    "static/js/3.ed42d7fc.chunk.js": "/Rick_-_Morty_Wiki_GraphQL/static/js/3.ed42d7fc.chunk.js",
+    "static/js/3.ed42d7fc.chunk.js.map": "/Rick_-_Morty_Wiki_GraphQL/static/js/3.ed42d7fc.chunk.js.map",
+    "index.html": "/Rick_-_Morty_Wiki_GraphQL/index.html",
+    "static/css/main.fffc1406.chunk.css.map": "/Rick_-_Morty_Wiki_GraphQL/static/css/main.fffc1406.chunk.css.map",
+    "static/js/2.628ccfeb.chunk.js.LICENSE.txt": "/Rick_-_Morty_Wiki_GraphQL/static/js/2.628ccfeb.chunk.js.LICENSE.txt",
+    "static/media/Rick_and_Morty_logo.42c8df0b.png": "/Rick_-_Morty_Wiki_GraphQL/static/media/Rick_and_Morty_logo.42c8df0b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.829609cb.js",
+    "static/js/2.628ccfeb.chunk.js",
+    "static/css/main.fffc1406.chunk.css",
+    "static/js/main.e524d7a0.chunk.js"
+  ]
+}
