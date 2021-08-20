@@ -15,15 +15,13 @@ export const GET_EPISODES_QUERY = gql`
 `;
 
 export const GET_SINGLE_EPISODE_QUERY = gql`
-   query {
-      episodes {
-         results {
-            id
-            name
-            air_date
-            episode
-            created
-         }
+   query EpisodesByIds($id: String) {
+      episodesByIds(ids: $id) {
+         id
+         episode
+         air_date
+         created
+         name
       }
    }
 `;

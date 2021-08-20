@@ -12,7 +12,7 @@ const GetEpisodes = () => {
    useEffect(() => {
       setEpisodesData(data && data.episodes.results);
    }, [data]);
-   console.log(episodesData);
+   // console.log(episodesData);
 
    return (
       <div className="pr-5 pl-5">

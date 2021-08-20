@@ -47,7 +47,7 @@ function App() {
                   <Route path="/episodes" component={EpisodesPage} />
                   <Route path="/characters" component={CharactersPage} />
                   <Route path="/locations" component={LocationsPage} />
-                  <Route path="/singleEpisode/:episodeID">
+                  <Route path="/singleEpisode/:id">
                      <SingleEpisode></SingleEpisode>
                   </Route>
                </ApolloProvider>
