@@ -13,7 +13,7 @@ const SingleEpisode = () => {
    const [singleData, setSingleData] = useState([]);
 
    useEffect(() => {
-      setSingleData(data && data.episodesByIds);
+      setSingleData(data && data.data.episodesByIds);
    }, [data]);
    console.log(singleData);
 
