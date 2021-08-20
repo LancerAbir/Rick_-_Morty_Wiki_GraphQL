@@ -1,6 +1,4 @@
 import { useQuery } from "@apollo/client";
-import { faAtom } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // Import Local Components
@@ -32,9 +30,7 @@ const GetLocations = () => {
                           </div>
                           <Link to={`/singleLocation/${data.id}`}>more</Link>
                           <div className="ico-card">
-                             <i>
-                                <FontAwesomeIcon icon={faAtom} />
-                             </i>
+                             <i></i>
                           </div>
                        </div>
                     </div>
