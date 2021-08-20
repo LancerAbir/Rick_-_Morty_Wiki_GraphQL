@@ -12,7 +12,6 @@ const GetCharacters = () => {
    useEffect(() => {
       setCharactersData(data && data.characters.results);
    }, [data]);
-   // console.log(charactersData);
    return (
       <div className="pr-5 pl-5">
          <div className="row">

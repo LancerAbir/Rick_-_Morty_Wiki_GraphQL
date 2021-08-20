@@ -9,7 +9,7 @@ import Navbar from "../../Layout/Navbar";
 const SingleLocation = () => {
    let { locationID } = useParams();
 
-   const { loading, error, data } = useQuery(GET_SINGLE_LOCATIONS_QUERY, {
+   const { data } = useQuery(GET_SINGLE_LOCATIONS_QUERY, {
       variables: { id: locationID },
    });
 
@@ -17,11 +17,6 @@ const SingleLocation = () => {
    useEffect(() => {
       setSingleData(data && data.location);
    }, [data]);
-
-   console.log(singleData);
-
-   // if (loading) return "Loading...";
-   // if (error) return `Error! ${error.message}`;
 
    return (
       <div>

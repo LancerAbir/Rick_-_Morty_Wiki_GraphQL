@@ -9,11 +9,10 @@ import Navbar from "../../Layout/Navbar";
 const SingleCharacter = () => {
    let { characterID } = useParams();
 
-   const { loading, error, data } = useQuery(GET_SINGLE_CHARACTERS_QUERY, {
+   const { data } = useQuery(GET_SINGLE_CHARACTERS_QUERY, {
       variables: { id: characterID },
    });
 
-   // console.log(data);
    const [singleData, setSingleData] = useState([]);
 
    useEffect(() => {

@@ -9,7 +9,7 @@ import Navbar from "../../Layout/Navbar";
 const SingleEpisode = () => {
    let { episodesID } = useParams();
 
-   const { loading, error, data } = useQuery(GET_SINGLE_EPISODE_QUERY, {
+   const { data } = useQuery(GET_SINGLE_EPISODE_QUERY, {
       variables: { id: episodesID },
    });
 
@@ -17,9 +17,6 @@ const SingleEpisode = () => {
    useEffect(() => {
       setSingleData(data && data.episode);
    }, [data]);
-
-   // if (loading) return "Loading...";
-   // if (error) return `Error! ${error.message}`;
 
    return (
       <div>

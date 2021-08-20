@@ -14,7 +14,6 @@ const GetLocations = () => {
    useEffect(() => {
       setLocationsData(data && data.locations.results);
    }, [data]);
-   //    console.log(locationsData);
 
    return (
       <div className="pr-5 pl-5">
