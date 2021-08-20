@@ -36,7 +36,7 @@ const SingleLocation = () => {
                               <i className="fa fa-eercast"></i>
                            </div>
                            <h2>
-                              Single Location Data -{" "}
+                              Single Location Data -
                               {singleData && singleData.id}
                            </h2>
 
