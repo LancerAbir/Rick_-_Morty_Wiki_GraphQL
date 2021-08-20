@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // Import Local Components
 import { GET_EPISODES_QUERY } from "../GraphQL/Queries";
 
@@ -34,7 +35,16 @@ const GetEpisodes = () => {
                           }}
                           className="episodesBox"
                        >
-                          Episodes Id: {data.id} Created: {data.created}{" "}
+                          <Link to={`/singleEpisode/${data.id}`}>
+                             <p
+                                style={{
+                                   color: "#fff",
+                                   textDecoration: "none",
+                                }}
+                             >
+                                Episodes Id: {data.id} Created: {data.created}
+                             </p>
+                          </Link>
                        </div>
                     </div>
                  ))
