@@ -211,3 +211,76 @@ img.card-img-top.image-width {
    color: rgba(255, 255, 255, 1);
    z-index: 0;
 }
+
+/*! ~~~~~~˚∆˚~~~~~~  Single Details Page Design  ~~~~~~˚∆˚~~~~~~*/
+
+.services-block-three {
+   margin-bottom: 30px;
+}
+.services-block-three i {
+   font-size: 32px;
+}
+.services-block-three > span {
+   display: block;
+   border: 2px solid #d5d5d5;
+   border-radius: 4px;
+   text-align: center;
+   background: #fff;
+   padding: 20px;
+   position: relative;
+   margin-bottom: 30px;
+}
+.services-block-three > span:before {
+   display: block;
+   content: "";
+   width: 9%;
+   height: 17%;
+   position: absolute;
+   bottom: -2px;
+   right: -2px;
+   border-bottom: 2px solid #03a9f5;
+   border-right: 2px solid #03a9f5;
+   transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;
+}
+.services-block-three > span:after {
+   display: block;
+   content: "";
+   width: 9%;
+   height: 17%;
+   position: absolute;
+   top: -2px;
+   left: -2px;
+   border-top: 2px solid #03a9f5;
+   border-left: 2px solid #03a9f5;
+   transition: all 0.5s ease 0s;
+   -webkit-transition: all 0.5s ease 0s;
+}
+.padding-15px-bottom {
+   padding-bottom: 15px;
+}
+.services-block-three h4 {
+   color: #6f6f6f;
+   font-size: 14px;
+   margin-bottom: 10px;
+   font-weight: 600;
+}
+.services-block-three p {
+   margin-bottom: 0;
+   color: #757575;
+}
+.services-block-three > span:hover {
+   opacity: 1;
+   border-color: #d5d5d5;
+}
+a:hover,
+a:active {
+   color: #03a9f5;
+   text-decoration: none;
+}
+
+.services-block-three > span:hover:before,
+.services-block-three > span:hover:after {
+   width: 95%;
+   height: 90%;
+}

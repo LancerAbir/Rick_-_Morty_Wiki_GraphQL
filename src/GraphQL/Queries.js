@@ -15,7 +15,7 @@ export const GET_EPISODES_QUERY = gql`
 `;
 
 export const GET_SINGLE_EPISODE_QUERY = gql`
-   query episode($id: ID!) {
+   query ($id: ID!) {
       episode(id: $id) {
          id
          episode
@@ -44,8 +44,8 @@ export const GET_CHARACTERS_QUERY = gql`
 `;
 
 export const GET_SINGLE_CHARACTERS_QUERY = gql`
-   query {
-      charactersByIds(ids: 1) {
+   query ($id: ID!) {
+      character(id: $id) {
          id
          name
          status
@@ -89,13 +89,20 @@ export const GET_LOCATIONS_QUERY = gql`
 `;
 
 export const GET_SINGLE_LOCATIONS_QUERY = gql`
-   query {
-      locations {
-         results {
+   query ($id: ID!) {
+      location(id: $id) {
+         id
+         name
+         type
+         dimension
+         created
+         residents {
             id
             name
+            status
+            species
             type
-            dimension
+            gender
             created
          }
       }

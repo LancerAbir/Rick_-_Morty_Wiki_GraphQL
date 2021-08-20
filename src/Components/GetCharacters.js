@@ -39,7 +39,10 @@ const GetCharacters = () => {
                                 This is a company that builds websites, web apps
                                 and e-commerce solutions.
                              </p>
-                             <Link to="#" className="btn btn-primary">
+                             <Link
+                                to={`/singleCharacter/${data.id}`}
+                                className="btn btn-primary"
+                             >
                                 <p
                                    style={{
                                       marginRight: "0px",

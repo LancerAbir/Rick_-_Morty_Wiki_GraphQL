@@ -14,7 +14,9 @@ import CharactersPage from "./Components/Pages/CharactersPage";
 import EpisodesPage from "./Components/Pages/EpisodesPage";
 import Home from "./Components/Pages/Home";
 import LocationsPage from "./Components/Pages/LocationsPage";
+import SingleCharacter from "./Components/Pages/SinglePages/SingleCharacter";
 import SingleEpisode from "./Components/Pages/SinglePages/SingleEpisode";
+import SingleLocation from "./Components/Pages/SinglePages/SingleLocation";
 // import NotFound from "./Components/Pages/404NotFound";
 
 // Check is Error
@@ -47,8 +49,14 @@ function App() {
                   <Route path="/episodes" component={EpisodesPage} />
                   <Route path="/characters" component={CharactersPage} />
                   <Route path="/locations" component={LocationsPage} />
-                  <Route path="/singleEpisode/:id">
+                  <Route path="/singleEpisode/:episodesID">
                      <SingleEpisode></SingleEpisode>
+                  </Route>
+                  <Route path="/singleCharacter/:characterID">
+                     <SingleCharacter></SingleCharacter>
+                  </Route>
+                  <Route path="/singleLocation/:locationID">
+                     <SingleLocation></SingleLocation>
                   </Route>
                </ApolloProvider>
             </Switch>

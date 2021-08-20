@@ -1,30 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_SINGLE_EPISODE_QUERY } from "../../../GraphQL/Queries";
+import { GET_SINGLE_CHARACTERS_QUERY } from "../../../GraphQL/Queries";
 import { useParams } from "react-router-dom";
 
 // Import Local Components
 import Navbar from "../../Layout/Navbar";
 
-const SingleEpisode = () => {
-   let { episodesID } = useParams();
+const SingleCharacter = () => {
+   let { characterID } = useParams();
 
-   const { loading, error, data } = useQuery(GET_SINGLE_EPISODE_QUERY, {
-      variables: { id: episodesID },
+   const { loading, error, data } = useQuery(GET_SINGLE_CHARACTERS_QUERY, {
+      variables: { id: characterID },
    });
 
+   // console.log(data);
    const [singleData, setSingleData] = useState([]);
-   useEffect(() => {
-      setSingleData(data && data.episode);
-   }, [data]);
 
-   // if (loading) return "Loading...";
-   // if (error) return `Error! ${error.message}`;
+   useEffect(() => {
+      setSingleData(data && data.character);
+   }, [data]);
 
    return (
       <div>
          <Navbar />
-
          <div className="pr-5 pl-5">
             {singleData ? (
                <div className="row">
@@ -35,17 +33,27 @@ const SingleEpisode = () => {
                               <i className="fa fa-eercast"></i>
                            </div>
                            <h2>
-                              Single Episode - {singleData && singleData.id}
+                              Single Character - {singleData && singleData.id}
                            </h2>
-                           <h4>{singleData && singleData.name}</h4>
+                           <img
+                              src={singleData && singleData.image}
+                              className="rounded-circle mb-2"
+                              style={{ width: "70px", height: "70px" }}
+                              alt={singleData && singleData.name}
+                           />
+
+                           <h4>{singleData && singleData.name} </h4>
                            <p className="xs-font-size13 xs-line-height-22">
                               Created-{singleData && singleData.created}
                            </p>
                            <p className="xs-font-size13 xs-line-height-22">
-                              Episode-{singleData && singleData.episode}
+                              Gender-{singleData && singleData.gender}
                            </p>
                            <p className="xs-font-size13 xs-line-height-22">
-                              Air Date is {singleData && singleData.air_date}
+                              Species-{singleData && singleData.species}
+                           </p>
+                           <p className="xs-font-size13 xs-line-height-22">
+                              Status-{singleData && singleData.status}
                            </p>
                         </span>
                      </div>
@@ -63,4 +71,4 @@ const SingleEpisode = () => {
    );
 };
 
-export default SingleEpisode;
+export default SingleCharacter;

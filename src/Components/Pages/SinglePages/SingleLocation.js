@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_SINGLE_EPISODE_QUERY } from "../../../GraphQL/Queries";
+import { GET_SINGLE_LOCATIONS_QUERY } from "../../../GraphQL/Queries";
 import { useParams } from "react-router-dom";
 
 // Import Local Components
 import Navbar from "../../Layout/Navbar";
 
-const SingleEpisode = () => {
-   let { episodesID } = useParams();
+const SingleLocation = () => {
+   let { locationID } = useParams();
 
-   const { loading, error, data } = useQuery(GET_SINGLE_EPISODE_QUERY, {
-      variables: { id: episodesID },
+   const { loading, error, data } = useQuery(GET_SINGLE_LOCATIONS_QUERY, {
+      variables: { id: locationID },
    });
 
    const [singleData, setSingleData] = useState([]);
    useEffect(() => {
-      setSingleData(data && data.episode);
+      setSingleData(data && data.location);
    }, [data]);
+
+   console.log(singleData);
 
    // if (loading) return "Loading...";
    // if (error) return `Error! ${error.message}`;
@@ -24,7 +26,6 @@ const SingleEpisode = () => {
    return (
       <div>
          <Navbar />
-
          <div className="pr-5 pl-5">
             {singleData ? (
                <div className="row">
@@ -35,17 +36,19 @@ const SingleEpisode = () => {
                               <i className="fa fa-eercast"></i>
                            </div>
                            <h2>
-                              Single Episode - {singleData && singleData.id}
+                              Single Location Data -{" "}
+                              {singleData && singleData.id}
                            </h2>
-                           <h4>{singleData && singleData.name}</h4>
+
+                           <h4>{singleData && singleData.name} </h4>
                            <p className="xs-font-size13 xs-line-height-22">
                               Created-{singleData && singleData.created}
                            </p>
                            <p className="xs-font-size13 xs-line-height-22">
-                              Episode-{singleData && singleData.episode}
+                              Gender-{singleData && singleData.dimension}
                            </p>
                            <p className="xs-font-size13 xs-line-height-22">
-                              Air Date is {singleData && singleData.air_date}
+                              Species-{singleData && singleData.episode}
                            </p>
                         </span>
                      </div>
@@ -63,4 +66,4 @@ const SingleEpisode = () => {
    );
 };
 
-export default SingleEpisode;
+export default SingleLocation;

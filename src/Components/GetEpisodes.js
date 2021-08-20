@@ -42,7 +42,7 @@ const GetEpisodes = () => {
                                    textDecoration: "none",
                                 }}
                              >
-                                Episodes Id: {data.id} Created: {data.created}
+                                Episodes Number: {data.id}
                              </p>
                           </Link>
                        </div>

@@ -28,10 +28,10 @@ const GetLocations = () => {
                     <div key={data.id} className="col-md-4 col-lg-4 column">
                        <div className="card gr-1">
                           <div className="txt">
-                             <h1>Episodes Id: {data.id}</h1>
+                             <h1>Location Id: {data.id}</h1>
                              <p>Dimension: {data.dimension}</p>
                           </div>
-                          <Link to="#">more</Link>
+                          <Link to={`/singleLocation/${data.id}`}>more</Link>
                           <div className="ico-card">
                              <i>
                                 <FontAwesomeIcon icon={faAtom} />
