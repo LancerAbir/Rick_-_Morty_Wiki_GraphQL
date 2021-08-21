@@ -2,10 +2,11 @@ import React from "react";
 import GetLocations from "../GetLocations";
 import Navbar from "../Layout/Navbar";
 
-const LocationsPage = () => {
+const LocationsPage = (props) => {
+    const locationsPath = props.location.pathname;
     return (
         <div>
-            <Navbar />
+            <Navbar locationsPath={locationsPath} />
             <GetLocations />
         </div>
     );

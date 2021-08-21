@@ -2,10 +2,11 @@ import React from "react";
 import GetCharacters from "../GetCharacters";
 import Navbar from "../Layout/Navbar";
 
-const CharactersPage = () => {
+const CharactersPage = (props) => {
+    const charactersPath = props.location.pathname;
     return (
         <div>
-            <Navbar />
+            <Navbar charactersPath={charactersPath} />
             <GetCharacters />
         </div>
     );

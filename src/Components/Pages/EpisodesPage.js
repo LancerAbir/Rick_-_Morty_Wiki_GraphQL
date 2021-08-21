@@ -2,10 +2,11 @@ import React from "react";
 import GetEpisodes from "../GetEpisodes";
 import Navbar from "../Layout/Navbar";
 
-const EpisodesPage = () => {
+const EpisodesPage = (props) => {
+    const episodesPath = props.location.pathname;
     return (
         <div>
-            <Navbar />
+            <Navbar episodesPath={episodesPath} />
             <GetEpisodes />
         </div>
     );
