@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 // Import Local Components
 import { GET_CHARACTERS_QUERY } from "../GraphQL/Queries";
 
-const GetCharacters = () => {
-    const { data, error, loading } = useQuery(GET_CHARACTERS_QUERY);
+const GetCharacters = ({ searchData }) => {
+    const [count, setCount] = useState(0);
+
+    const { data, error, loading } = useQuery(GET_CHARACTERS_QUERY, {
+        variables: { after: count, search: searchData },
+    });
+
+    // const { id } = data.characters.results.id;
+    // console.log(id);
 
     const [charactersData, setCharactersData] = useState([]);
 
@@ -19,7 +26,7 @@ const GetCharacters = () => {
         <div className="pr-5 pl-5">
             <div className="row">
                 <div className="col-md-12 mt-3 text-center">
-                    <h2>Get Characters Data</h2>
+                    <h2>Get Characters Data </h2>
                 </div>
                 {charactersData
                     ? charactersData.map((data) => (
@@ -62,7 +69,27 @@ const GetCharacters = () => {
                       ))
                     : "Loading..."}
                 <div className="col-md-12 mt-3 mb-3 text-center">
-                    <button className="btn btn-primary">Load More</button>
+                    {count > 0 ? (
+                        <button
+                            onClick={() => {
+                                setCount(count - 1);
+                            }}
+                            className="btn btn-primary mr-3"
+                        >
+                            Prev Page
+                        </button>
+                    ) : (
+                        ""
+                    )}
+
+                    <button
+                        onClick={() => {
+                            setCount(count + 1);
+                        }}
+                        className="btn btn-primary"
+                    >
+                        Next Page
+                    </button>
                 </div>
             </div>
         </div>

@@ -27,8 +27,8 @@ export const GET_SINGLE_EPISODE_QUERY = gql`
 `;
 
 export const GET_CHARACTERS_QUERY = gql`
-    query {
-        characters(page: 1) {
+    query ($after: Int, $search: String) {
+        characters(page: $after, filter: { name: $search }) {
             info {
                 count
             }

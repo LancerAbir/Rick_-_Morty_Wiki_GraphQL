@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import logo from "../../logo/Rick_and_Morty_logo.png";
 import SearchForm from "./SearchForm";
 
-const Navbar = ({ episodesPath, charactersPath, locationsPath }) => {
+const Navbar = ({
+    episodesPath,
+    charactersPath,
+    locationsPath,
+    ChangeHandler,
+    searchData,
+    handleSubmit,
+}) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand logo" to="/">
@@ -53,6 +60,9 @@ const Navbar = ({ episodesPath, charactersPath, locationsPath }) => {
                 <SearchForm
                     episodesPath={episodesPath}
                     charactersPath={charactersPath}
+                    searchData={searchData}
+                    handleSubmit={handleSubmit}
+                    ChangeHandler={ChangeHandler}
                     locationsPath={locationsPath}
                 />
             </div>

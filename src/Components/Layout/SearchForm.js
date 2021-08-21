@@ -1,38 +1,39 @@
 import React from "react";
 
-const SearchForm = ({ episodesPath, charactersPath, locationsPath }) => {
+const SearchForm = ({
+    episodesPath,
+    charactersPath,
+    locationsPath,
+    ChangeHandler,
+    searchData,
+    handleSubmit,
+}) => {
     if (episodesPath) {
         return (
             <form className="form-inline my-2 my-lg-0">
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Episode Data"
+                    placeholder="Search Episode Data"
                     aria-label="Search"
                 />
-                <button
-                    className="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-                >
-                    Search
-                </button>
             </form>
         );
     } else if (charactersPath) {
         return (
-            <form className="form-inline my-2 my-lg-0">
+            <form
+                className="form-inline my-2 my-lg-0"
+                onSubmit={(e) => handleSubmit(e)}
+            >
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Character Data"
+                    name="characterSearch"
+                    placeholder="Search Character Data"
                     aria-label="Search"
+                    value={searchData}
+                    onChange={(e) => ChangeHandler(e)}
                 />
-                <button
-                    className="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-                >
-                    Search
-                </button>
             </form>
         );
     } else if (locationsPath) {
@@ -41,15 +42,9 @@ const SearchForm = ({ episodesPath, charactersPath, locationsPath }) => {
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Location Data"
+                    placeholder="Search Location Data"
                     aria-label="Search"
                 />
-                <button
-                    className="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-                >
-                    Search
-                </button>
             </form>
         );
     } else {
