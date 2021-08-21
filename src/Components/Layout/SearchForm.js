@@ -7,7 +7,7 @@ const SearchForm = ({ episodesPath, charactersPath, locationsPath }) => {
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Episode Data"
                     aria-label="Search"
                 />
                 <button
@@ -24,7 +24,7 @@ const SearchForm = ({ episodesPath, charactersPath, locationsPath }) => {
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Character Data"
                     aria-label="Search"
                 />
                 <button
@@ -41,7 +41,7 @@ const SearchForm = ({ episodesPath, charactersPath, locationsPath }) => {
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Location Data"
                     aria-label="Search"
                 />
                 <button
