@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import { GET_EPISODES_QUERY } from "../GraphQL/Queries";
 
 const GetEpisodes = () => {
-    const { data } = useQuery(GET_EPISODES_QUERY);
+    const { data, error, loading } = useQuery(GET_EPISODES_QUERY);
 
     const [episodesData, setEpisodesData] = useState([]);
 
     useEffect(() => {
         setEpisodesData(data && data.episodes.results);
     }, [data]);
+
+    if (error) return <div> errors</div>;
+    if (loading || !data) return <div> loading</div>;
 
     return (
         <div className="pr-5 pl-5">
@@ -26,15 +29,15 @@ const GetEpisodes = () => {
                               key={data.id}
                               className="col-md-3 col-sm-6 col-12 mb-4"
                           >
-                              <div
-                                  style={{
-                                      backgroundColor: `#${Math.floor(
-                                          Math.random() * 1677729892
-                                      ).toString(16)}`,
-                                  }}
-                                  className="episodesBox"
-                              >
-                                  <Link to={`/singleEpisode/${data.id}`}>
+                              <Link to={`/singleEpisode/${data.id}`}>
+                                  <div
+                                      style={{
+                                          backgroundColor: `#${Math.floor(
+                                              Math.random() * 1677729892
+                                          ).toString(16)}`,
+                                      }}
+                                      className="episodesBox"
+                                  >
                                       <p
                                           style={{
                                               color: "#fff",
@@ -43,8 +46,8 @@ const GetEpisodes = () => {
                                       >
                                           Episodes Number: {data.id}
                                       </p>
-                                  </Link>
-                              </div>
+                                  </div>
+                              </Link>
                           </div>
                       ))
                     : "Loading..."}
