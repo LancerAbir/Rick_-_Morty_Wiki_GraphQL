@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 // Import Local Components
 import { GET_EPISODES_QUERY } from "../GraphQL/Queries";
 
-const GetEpisodes = () => {
-    const { data, error, loading } = useQuery(GET_EPISODES_QUERY);
+const GetEpisodes = ({ searchData }) => {
+    const [count, setCount] = useState(0);
+    const { data, error, loading } = useQuery(GET_EPISODES_QUERY, {
+        variables: { after: count, search: searchData },
+    });
 
     const [episodesData, setEpisodesData] = useState([]);
 
@@ -44,13 +47,36 @@ const GetEpisodes = () => {
                                               textDecoration: "none",
                                           }}
                                       >
-                                          Episodes Number: {data.id}
+                                          Episodes Name: {data.name}
                                       </p>
                                   </div>
                               </Link>
                           </div>
                       ))
                     : "Loading..."}
+                <div className="col-md-12 mt-3 mb-3 text-center">
+                    {count > 0 ? (
+                        <button
+                            onClick={() => {
+                                setCount(count - 1);
+                            }}
+                            className="btn btn-primary mr-3"
+                        >
+                            Prev Page
+                        </button>
+                    ) : (
+                        ""
+                    )}
+
+                    <button
+                        onClick={() => {
+                            setCount(count + 1);
+                        }}
+                        className="btn btn-primary"
+                    >
+                        Next Page
+                    </button>
+                </div>
             </div>
         </div>
     );

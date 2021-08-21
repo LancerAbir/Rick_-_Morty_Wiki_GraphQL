@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 // Import Local Components
 import { GET_LOCATIONS_QUERY } from "../GraphQL/Queries";
 
-const GetLocations = () => {
-    const { data, error, loading } = useQuery(GET_LOCATIONS_QUERY);
+const GetLocations = ({ searchData }) => {
+    const [count, setCount] = useState(0);
+    const { data, error, loading } = useQuery(GET_LOCATIONS_QUERY, {
+        variables: { after: count, search: searchData },
+    });
 
     const [locationsData, setLocationsData] = useState([]);
 
@@ -32,7 +35,7 @@ const GetLocations = () => {
                               <div className="card gr-1">
                                   <div className="txt">
                                       <h1>Location Id: {data.id}</h1>
-                                      <p>Dimension: {data.dimension}</p>
+                                      <p>Name: {data && data.name}</p>
                                   </div>
                                   <Link to={`/singleLocation/${data.id}`}>
                                       more
@@ -44,6 +47,29 @@ const GetLocations = () => {
                           </div>
                       ))
                     : "Loading..."}
+                <div className="col-md-12 mt-3 mb-3 text-center">
+                    {count > 0 ? (
+                        <button
+                            onClick={() => {
+                                setCount(count - 1);
+                            }}
+                            className="btn btn-primary mr-3"
+                        >
+                            Prev Page
+                        </button>
+                    ) : (
+                        ""
+                    )}
+
+                    <button
+                        onClick={() => {
+                            setCount(count + 1);
+                        }}
+                        className="btn btn-primary"
+                    >
+                        Next Page
+                    </button>
+                </div>
             </div>
         </div>
     );

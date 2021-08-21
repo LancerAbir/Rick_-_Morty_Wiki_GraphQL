@@ -10,12 +10,18 @@ const SearchForm = ({
 }) => {
     if (episodesPath) {
         return (
-            <form className="form-inline my-2 my-lg-0">
+            <form
+                className="form-inline my-2 my-lg-0"
+                onSubmit={(e) => handleSubmit(e)}
+            >
                 <input
                     className="form-control mr-sm-2"
                     type="search"
+                    name="episodeSearch"
                     placeholder="Search Episode Data"
                     aria-label="Search"
+                    value={searchData}
+                    onChange={(e) => ChangeHandler(e)}
                 />
             </form>
         );
@@ -38,12 +44,18 @@ const SearchForm = ({
         );
     } else if (locationsPath) {
         return (
-            <form className="form-inline my-2 my-lg-0">
+            <form
+                className="form-inline my-2 my-lg-0"
+                onSubmit={(e) => handleSubmit(e)}
+            >
                 <input
                     className="form-control mr-sm-2"
                     type="search"
+                    name="locationSearch"
                     placeholder="Search Location Data"
                     aria-label="Search"
+                    value={searchData}
+                    onChange={(e) => ChangeHandler(e)}
                 />
             </form>
         );

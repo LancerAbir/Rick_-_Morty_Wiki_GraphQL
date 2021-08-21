@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_EPISODES_QUERY = gql`
-    query {
-        episodes {
+    query ($after: Int, $search: String) {
+        episodes(page: $after, filter: { name: $search }) {
             results {
                 id
                 name
@@ -29,26 +29,6 @@ export const GET_SINGLE_EPISODE_QUERY = gql`
 export const GET_CHARACTERS_QUERY = gql`
     query ($after: Int, $search: String) {
         characters(page: $after, filter: { name: $search }) {
-            info {
-                count
-            }
-            results {
-                id
-                name
-                status
-                species
-                type
-                gender
-                image
-                created
-            }
-        }
-    }
-`;
-
-export const GET_CHARACTERS_PAGINATION_QUERY = gql`
-    query {
-        characters(page: 2) {
             info {
                 count
             }
@@ -98,8 +78,8 @@ export const GET_SINGLE_CHARACTERS_QUERY = gql`
 `;
 
 export const GET_LOCATIONS_QUERY = gql`
-    query {
-        locations {
+    query ($after: Int, $search: String) {
+        locations(page: $after, filter: { name: $search }) {
             results {
                 id
                 name
