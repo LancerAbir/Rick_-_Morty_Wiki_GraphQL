@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { GET_EPISODES_QUERY } from "../GraphQL/Queries";
 
 const GetEpisodes = ({ searchData }) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     const { data, error, loading } = useQuery(GET_EPISODES_QUERY, {
         variables: { after: count, search: searchData },
     });
@@ -56,7 +56,7 @@ const GetEpisodes = ({ searchData }) => {
                       ))
                     : "Loading..."}
                 <div className="col-md-12 mt-3 mb-3 text-center">
-                    {count > 0 ? (
+                    {count > 1 ? (
                         <button
                             onClick={() => {
                                 setCount(count - 1);
