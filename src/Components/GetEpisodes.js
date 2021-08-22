@@ -47,7 +47,8 @@ const GetEpisodes = ({ searchData }) => {
                                               textDecoration: "none",
                                           }}
                                       >
-                                          Episodes Name: {data.name}
+                                          Episodes Name: <br />{" "}
+                                          <strong>{data.name}</strong>
                                       </p>
                                   </div>
                               </Link>
