@@ -12,6 +12,10 @@ const GetEpisodes = ({ searchData }) => {
 
     const [episodesData, setEpisodesData] = useState([]);
 
+    const lastLength = episodesData && episodesData.map((v) => v.id);
+
+    // console.log(episodesData.length);
+
     useEffect(() => {
         setEpisodesData(data && data.episodes.results);
     }, [data]);
@@ -69,14 +73,18 @@ const GetEpisodes = ({ searchData }) => {
                         ""
                     )}
 
-                    <button
-                        onClick={() => {
-                            setCount(count + 1);
-                        }}
-                        className="btn btn-primary"
-                    >
-                        Next Page
-                    </button>
+                    {lastLength != "41" ? (
+                        <button
+                            onClick={() => {
+                                setCount(count + 1);
+                            }}
+                            className="btn btn-primary"
+                        >
+                            Next Page
+                        </button>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         </div>

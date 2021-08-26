@@ -15,6 +15,7 @@ const GetCharacters = ({ searchData }) => {
     // console.log(id);
 
     const [charactersData, setCharactersData] = useState([]);
+    const lastLength = charactersData && charactersData.map((v) => v.id);
 
     useEffect(() => {
         setCharactersData(data && data.characters.results);
@@ -82,14 +83,18 @@ const GetCharacters = ({ searchData }) => {
                         ""
                     )}
 
-                    <button
-                        onClick={() => {
-                            setCount(count + 1);
-                        }}
-                        className="btn btn-primary"
-                    >
-                        Next Page
-                    </button>
+                    {lastLength != "41" ? (
+                        <button
+                            onClick={() => {
+                                setCount(count + 1);
+                            }}
+                            className="btn btn-primary"
+                        >
+                            Next Page
+                        </button>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         </div>

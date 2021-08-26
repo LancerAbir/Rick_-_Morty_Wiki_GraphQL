@@ -11,6 +11,17 @@ const GetLocations = ({ searchData }) => {
     });
 
     const [locationsData, setLocationsData] = useState([]);
+    const lastLength = locationsData && locationsData.map((v) => v.id);
+    console.log(lastLength);
+
+    // if (lastLength.length === lastLength) {
+    //     console.log("done");
+    // } else {
+    //     console.log("nothing");
+    // }
+    // {
+    //     lastLength === "108" ? alert("done") : alert("nothing");
+    // }
 
     useEffect(() => {
         setLocationsData(data && data.locations.results);
@@ -61,14 +72,18 @@ const GetLocations = ({ searchData }) => {
                         ""
                     )}
 
-                    <button
-                        onClick={() => {
-                            setCount(count + 1);
-                        }}
-                        className="btn btn-primary"
-                    >
-                        Next Page
-                    </button>
+                    {lastLength != "20" ? (
+                        <button
+                            onClick={() => {
+                                setCount(count + 1);
+                            }}
+                            className="btn btn-primary"
+                        >
+                            Next Page
+                        </button>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         </div>
